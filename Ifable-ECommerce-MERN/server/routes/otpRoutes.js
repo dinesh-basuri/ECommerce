@@ -1,7 +1,7 @@
 const express = require('express')
-const Router = express.Router()
+const router = express.Router()
 const otpController = require('../controllers/otpController')
 
-Router.post('/send-otp',otpController.sendOTP)
+router.post('/send-otp',otpController.sendOTP)
 
-module.exports = Router
+module.exports = router

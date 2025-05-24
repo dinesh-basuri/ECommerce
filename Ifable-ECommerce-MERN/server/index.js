@@ -7,11 +7,15 @@ const PORT = process.env.PORT
 const DB=process.env.DB
 const authRoutes = require('./routes/authRoutes')
 const otpRoutes = require('./routes/otpRoutes')
+const productRoutes = require('./routes/productRoutes')
+const featuredProductRoutes = require('./routes/featuredProductsRoutes')
 
 app.use(express.json())
 app.use(cors())
 app.use('/api/v1/user',authRoutes)
 app.use('/api/v1/auth',otpRoutes)
+app.use('/api/v1/product',productRoutes)
+app.use('/api/v1/featuredProducts',featuredProductRoutes)
 
 mongoose.connect(DB).then(()=>{
   console.log('connected to database')

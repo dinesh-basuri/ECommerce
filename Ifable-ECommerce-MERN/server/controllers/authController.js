@@ -10,7 +10,7 @@ const signToken = (id) => {
 
 exports.signUp = async (req,res) => {
   try {
-    const {firstName,lastName,email,phoneNumber,password,confirmPassword,otp} = req.body
+    const {firstName,lastName,email,phoneNumber,password,confirmPassword,otp,role} = req.body
 
     if(!firstName || !lastName || !email || !phoneNumber || !password || !confirmPassword) {
       return res.status(403).json({
@@ -41,9 +41,10 @@ exports.signUp = async (req,res) => {
       email,
       phoneNumber,
       password,
-      confirmPassword
+      confirmPassword,
+      role
     });
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
       message: 'User registered successfully',
       user: newUser,
